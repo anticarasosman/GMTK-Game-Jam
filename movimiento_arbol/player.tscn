@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5yxqq500uis5"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_fguu7"]
+[ext_resource type="Texture2D" uid="uid://dfx4o1e7b1a4y" path="res://Sprites/Minish_Piedra_Suerte_TMC.webp" id="2_r7nk5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w2huk"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_fguu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w2huk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.0708812, 0.0915493)
+texture = ExtResource("2_r7nk5")
