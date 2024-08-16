@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Movimiento_Arbol"
-run/main_scene="res://Escenas/testing_movimiento.tscn"
+run/main_scene="res://Escenas/Pick-and-Place.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

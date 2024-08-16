@@ -5,6 +5,7 @@ const SPEED = 130.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var inventory = ""
 
 # Refereces
 @onready var sprite_2d = $Sprite2D
@@ -35,3 +36,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func set_inventory(item):
+	inventory = item
+
+func get_inventory():
+	return inventory
