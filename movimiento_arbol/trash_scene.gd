@@ -1,7 +1,5 @@
 extends Area3D
 
-@export var Item = "Decoration"
-
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
 
@@ -12,6 +10,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	if body is CharacterBody3D:
-		print("In the inventory: ", body.inventory)
-		if body.inventory == "" && body.interacting:
-			body.inventory = Item
+		if body.interacting:
+			body.inventory = ""
+			print("Cleared inventory")

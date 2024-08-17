@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cifrfi5rveflg"]
+[gd_scene load_steps=9 format=3 uid="uid://cifrfi5rveflg"]
 
 [ext_resource type="PackedScene" uid="uid://djeqk0qu14d7n" path="res://Escenas/rotation_zone.tscn" id="1_ldjtj"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="2_v2t0x"]
-[ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/ResourceBox3D.tscn" id="3_rso4s"]
-[ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/TargetLocation3D.tscn" id="4_voard"]
+[ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="3_rso4s"]
+[ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="4_voard"]
+[ext_resource type="PackedScene" uid="uid://22aje1rlcpcg" path="res://Escenas/trash_scene.tscn" id="5_5dk7a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oglcv"]
 
@@ -96,3 +97,6 @@ Item = "Decoration A"
 [node name="TargetLocation3D2" parent="." instance=ExtResource("4_voard")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.65009, 3.05874, 7.59255)
 Item = "Decoration B"
+
+[node name="TrashScene" parent="." instance=ExtResource("5_5dk7a")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.835, 2.35325, 9.18398)

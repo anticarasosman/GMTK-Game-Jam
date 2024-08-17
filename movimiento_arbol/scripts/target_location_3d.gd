@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body):
 	if body is CharacterBody3D:
 		print("In the inventory: ", body.inventory)
-		if body.inventory == Item && not completed:
+		if body.inventory == Item && body.interacting && not completed:
 			body.inventory = ""
 			completed = true
 			print("COMPLETED")
