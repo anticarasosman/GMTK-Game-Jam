@@ -5,14 +5,27 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var rotation_time = 0.5
 var rotate = false
 @onready var sprite_3d = $Sprite3D
+@onready var timer = $Timer
 
-func _process(delta):
+
+func _process(_delta):
 	if Input.is_action_just_pressed("Rotate_cam_L") and rotate == true:
-		self.rotation_degrees.y -= 90
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		self.rotate = false
+		timer.start()
+		var tween = create_tween()
+		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,90,0), rotation_time)
 	elif Input.is_action_just_pressed("Rotate_cam_R") and rotate == true:
-		self.rotation_degrees.y += 90
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		self.rotate = false
+		timer.start()
+		var tween = create_tween()
+		tween.tween_property(self, "rotation_degrees", rotation_degrees+Vector3(0,90,0), rotation_time)
 		
 func _physics_process(delta):
 	# Add the gravity.
@@ -48,3 +61,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func _on_timer_timeout():
+	self.rotate = true

@@ -15,11 +15,13 @@ shape = SubResource("CylinderShape3D_2em4j")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.588091, 0, 0, 0, 0.696404, 0, 0, 0, 1, 0, 0, 0)
-rotation_edit_mode = 2
 texture = ExtResource("1_wxtif")
 
 [node name="Guide" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37307, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.05749)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

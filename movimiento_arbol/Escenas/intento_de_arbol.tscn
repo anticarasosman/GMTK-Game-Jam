@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://2n3p7dmsrcxj"]
+[gd_scene load_steps=7 format=3 uid="uid://2n3p7dmsrcxj"]
 
+[ext_resource type="PackedScene" uid="uid://2d3ikqxewklv" path="res://Escenas/pivot.tscn" id="1_1po7l"]
 [ext_resource type="PackedScene" uid="uid://djeqk0qu14d7n" path="res://Escenas/rotation_zone.tscn" id="1_f05af"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="1_qga8h"]
 
@@ -10,6 +11,9 @@
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
 
 [node name="Intento de arbol" type="Node3D"]
+
+[node name="Pivot" parent="." instance=ExtResource("1_1po7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Rotation Zones" type="Node3D" parent="."]
 
@@ -24,20 +28,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.3703, 3.70673, 9.09083)
 
 [node name="Rotation_zone4" parent="Rotation Zones" instance=ExtResource("1_f05af")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.706, 3.70673, -9.64756)
-
-[node name="Cam Positions" type="Node3D" parent="."]
-
-[node name="Cam1" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163778, -0.489018, 1.49622)
-
-[node name="Cam2" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6079, 0.0633963, -1.32145)
-
-[node name="Cam3" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37952, 0.0633963, -4.81095)
-
-[node name="Cam4" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2277, 0.0633963, -1.32211)
 
 [node name="Arbol" type="Node3D" parent="."]
 transform = Transform3D(8.24041, 0, 0, 0, 15.1983, 0, 0, 0, 7.53422, 0, 0, 0)
@@ -71,7 +61,7 @@ skeleton = NodePath("../../3")
 shape = SubResource("BoxShape3D_aj5yh")
 
 [node name="Player3D" parent="." instance=ExtResource("1_qga8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63752, 3.789, 8.89)
 
 [node name="Suelo" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202407, 0)
