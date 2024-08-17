@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfx4o1e7b1a4y"
-path.s3tc="res://.godot/imported/Minish_Piedra_Suerte_TMC.webp-cf10ae2aa182fc668481a021400e9016.s3tc.ctex"
+uid="uid://dmq17ghj4wpgq"
+path.s3tc="res://.godot/imported/Pixel.png-1185671fda77d5949a335fe44721ac38.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Minish_Piedra_Suerte_TMC.webp"
-dest_files=["res://.godot/imported/Minish_Piedra_Suerte_TMC.webp-cf10ae2aa182fc668481a021400e9016.s3tc.ctex"]
+source_file="res://Sprites/Pixel.png"
+dest_files=["res://.godot/imported/Pixel.png-1185671fda77d5949a335fe44721ac38.s3tc.ctex"]
 
 [params]
 

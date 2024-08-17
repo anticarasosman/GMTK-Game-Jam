@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dybu74jfcrkbi"]
+
+[ext_resource type="Script" path="res://Scripts/player_3d.gd" id="1_udljd"]
+[ext_resource type="Texture2D" uid="uid://dfx4o1e7b1a4y" path="res://Sprites/Minish_Piedra_Suerte_TMC.webp" id="1_wxtif"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2em4j"]
+height = 1.98238
+
+[node name="Player3D" type="CharacterBody3D"]
+script = ExtResource("1_udljd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.153813, 0, 0, 0)
+shape = SubResource("CylinderShape3D_2em4j")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.588091, 0, 0, 0, 0.696404, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 2
+texture = ExtResource("1_wxtif")
+
+[node name="Guide" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37307, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.05749)
