@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7bs7vi8i8j27"]
 
-[ext_resource type="Script" path="res://scripts/ressource_box.gd" id="1_antq1"]
+[ext_resource type="Script" path="res://scripts/resource_box.gd" id="1_antq1"]
 [ext_resource type="Texture2D" uid="uid://b32vg3dgvj4ep" path="res://Sprites/caja.png" id="1_qlc4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbrsy"]
