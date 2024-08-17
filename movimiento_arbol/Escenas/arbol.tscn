@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://tjqjq7686f4w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plro1"]
+
+[node name="Arbol" type="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4.70105, 0, 0, 0, 1, 0, 0, 0, 4.83849, 0, 0, 0)
+shape = SubResource("BoxShape3D_plro1")

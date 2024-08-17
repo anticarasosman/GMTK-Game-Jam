@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfx4o1e7b1a4y"
-path.s3tc="res://.godot/imported/Minish_Piedra_Suerte_TMC.webp-cf10ae2aa182fc668481a021400e9016.s3tc.ctex"
+uid="uid://isxtoekhbc"
+path="res://.godot/imported/images.jpeg-067b7a64bd404111c4370544c2f65c18.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Minish_Piedra_Suerte_TMC.webp"
-dest_files=["res://.godot/imported/Minish_Piedra_Suerte_TMC.webp-cf10ae2aa182fc668481a021400e9016.s3tc.ctex"]
+source_file="res://Sprites/images.jpeg"
+dest_files=["res://.godot/imported/images.jpeg-067b7a64bd404111c4370544c2f65c18.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
