@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://2n3p7dmsrcxj"]
+
+[ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="1_qga8h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oglcv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aj5yh"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
+
+[node name="Intento de arbol" type="Node3D"]
+
+[node name="Cam Positions" type="Node3D" parent="."]
+
+[node name="Cam1" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163778, -0.489018, 1.49622)
+
+[node name="Cam2" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6079, 0.0633963, -1.32145)
+
+[node name="Cam3" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37952, 0.0633963, -4.81095)
+
+[node name="Cam4" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2277, 0.0633963, -1.32211)
+
+[node name="Arbol" type="Node3D" parent="."]
+transform = Transform3D(8.24041, 0, 0, 0, 15.1983, 0, 0, 0, 7.53422, 0, 0, 0)
+
+[node name="1" type="StaticBody3D" parent="Arbol"]
+transform = Transform3D(3, 0, 0, 0, 0.3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/1"]
+mesh = SubResource("BoxMesh_oglcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/1"]
+shape = SubResource("BoxShape3D_aj5yh")
+
+[node name="2" type="StaticBody3D" parent="Arbol"]
+transform = Transform3D(2, 0, 0, 0, 0.3, 0, 0, 0, 2, 0, 0.15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/2"]
+mesh = SubResource("BoxMesh_oglcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/2"]
+shape = SubResource("BoxShape3D_aj5yh")
+
+[node name="3" type="StaticBody3D" parent="Arbol"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/3"]
+mesh = SubResource("BoxMesh_oglcv")
+skeleton = NodePath("../../3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/3"]
+shape = SubResource("BoxShape3D_aj5yh")
+
+[node name="Player3D" parent="." instance=ExtResource("1_qga8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)
+
+[node name="Camera3D" type="Camera3D" parent="Player3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17091, 1.09179, 10.5642)
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202407, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+shape = SubResource("WorldBoundaryShape3D_4cuv0")
