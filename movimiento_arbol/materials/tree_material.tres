@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dju0lqwb7nhus"]
+
+[ext_resource type="Texture2D" uid="uid://or62c0qtpofo" path="res://materials/noiseTexture.png" id="1_jqj6g"]
+
+[resource]
+albedo_color = Color(0.0823529, 0.6, 0.270588, 1)
+metallic = 1.0
+normal_enabled = true
+normal_texture = ExtResource("1_jqj6g")
