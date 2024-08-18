@@ -6,18 +6,18 @@ var Mass_Left = 0
 var Mass_Right = 0
 
 #Reemplazar los valores "5" del Vector3 por la masa de la decoracion
-func _on_front_button_down():
+func add_mass_front(mass):
 	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(-5,0,0), 1)
+	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(-mass,0,0), mass)
 		
-func _on_back_button_down():
+func add_mass_down(mass):
 	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(5,0,0), 1)
+	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(mass,0,0), mass)
 
-func _on_left_button_down():
+func add_mass_left(mass):
 	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,0,-5), 1)
+	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,0,-mass), mass)
 		
-func _on_right_button_down():
+func add_mass_right(mass):
 	var tween = create_tween()
-	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,0,5), 1)
+	tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,0,mass), mass)

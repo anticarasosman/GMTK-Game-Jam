@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6joft"]
 
 [node name="Arbol" type="Node3D"]
-transform = Transform3D(0.997896, 0.0648284, 0, -0.0648284, 0.997896, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_2sjd1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -20,3 +20,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 2.34028, 0, 0, 0, 1, 1.49012e-08, 2.84402, 0.163827)
 shape = SubResource("CapsuleShape3D_6joft")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
