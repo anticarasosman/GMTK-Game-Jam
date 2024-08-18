@@ -31,6 +31,21 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.3703, 3.70673, 9.09083)
 [node name="Rotation_zone4" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.706, 3.70673, -9.64756)
 
+[node name="Rotation_zone5" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.54484, 6.09881, 5.00089)
+
+[node name="Rotation_zone6" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.49529, 6.09881, 5.01288)
+
+[node name="Rotation_zone7" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.13641, 6.63195, -5.07799)
+
+[node name="Rotation_zone8" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.53158, 6.63195, -5.07799)
+
+[node name="Rotation_zone9" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 8, 0.249028, 9.20128, 0.678772)
+
 [node name="Cam Positions" type="Node3D" parent="."]
 
 [node name="Cam1" type="Node3D" parent="Cam Positions"]
