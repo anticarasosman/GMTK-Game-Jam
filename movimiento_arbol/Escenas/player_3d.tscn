@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dfx4o1e7b1a4y" path="res://Sprites/Minish_Piedra_Suerte_TMC.webp" id="1_wxtif"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2em4j"]
-height = 1.54754
+height = 1.98238
 
 [node name="Player3D" type="CharacterBody3D"]
 script = ExtResource("1_udljd")
@@ -20,3 +20,6 @@ texture = ExtResource("1_wxtif")
 
 [node name="Guide" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37307, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.05749)

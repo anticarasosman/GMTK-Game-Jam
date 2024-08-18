@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://22aje1rlcpcg"]
+
+[ext_resource type="PackedScene" uid="uid://cgf17kwteki7f" path="res://models/trash can.fbx" id="1_i834w"]
+[ext_resource type="Script" path="res://trash_scene.gd" id="1_qr822"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ju6pb"]
+
+[node name="TrashScene" type="Area3D"]
+script = ExtResource("1_qr822")
+
+[node name="trash can" parent="." instance=ExtResource("1_i834w")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 0, 0.35, 0)
+shape = SubResource("BoxShape3D_ju6pb")

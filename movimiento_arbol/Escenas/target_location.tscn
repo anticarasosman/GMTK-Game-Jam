@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://3fmbg42rq6kb"]
+
+[ext_resource type="Script" path="res://scripts/target_location_3d.gd" id="1_g2c4b"]
+[ext_resource type="Material" uid="uid://bs5i2mj6f5xax" path="res://materials/objective material.tres" id="2_en4rb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sbwbh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5tuqe"]
+material = ExtResource("2_en4rb")
+
+[node name="TargetLocation3D" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_g2c4b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.95, 0, 0)
+shape = SubResource("BoxShape3D_sbwbh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_5tuqe")
