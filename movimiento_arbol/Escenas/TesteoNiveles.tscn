@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpuy3xwvw1dq6"]
+
+[ext_resource type="PackedScene" uid="uid://bq5ymx25do5lm" path="res://Escenas/Nivel_Arbol.tscn" id="1_pieiv"]
+[ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="3_yeuhc"]
+[ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="4_knv1m"]
+[ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="5_tuspj"]
+[ext_resource type="PackedScene" uid="uid://22aje1rlcpcg" path="res://Escenas/trash_scene.tscn" id="6_3pb3w"]
+[ext_resource type="PackedScene" path="res://Escenas/pivot.tscn" id="7_po4yu"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
+
+[node name="Pick-and-place" type="Node3D"]
+
+[node name="Cam Positions" type="Node3D" parent="."]
+
+[node name="Cam1" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163778, -0.489018, 1.49622)
+
+[node name="Cam2" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6079, 0.0633963, -1.32145)
+
+[node name="Cam3" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37952, 0.0633963, -4.81095)
+
+[node name="Cam4" type="Node3D" parent="Cam Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2277, 0.0633963, -1.32211)
+
+[node name="Arbol" type="Node3D" parent="."]
+transform = Transform3D(8.24041, 0, 0, 0, 15.1983, 0, 0, 0, 7.53422, 0, 0, 0)
+
+[node name="NivelArbol" parent="Arbol" instance=ExtResource("1_pieiv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.2, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="NivelArbol2" parent="Arbol" instance=ExtResource("1_pieiv")]
+transform = Transform3D(0.375, 0, 0, 0, 0.15, 0, 0, 0, 0.375, 0, 0.169027, 0)
+
+[node name="NivelArbol3" parent="Arbol" instance=ExtResource("1_pieiv")]
+transform = Transform3D(0.281, 0, 0, 0, 0.141, 0, 0, 0, 0.281, 0, 0.294198, 0)
+
+[node name="NivelArbol4" parent="Arbol" instance=ExtResource("1_pieiv")]
+transform = Transform3D(0.168, 0, 0, 0, 0.164, 0, 0, 0, 0.168, 0, 0.440582, 0)
+
+[node name="Player3D" parent="." instance=ExtResource("3_yeuhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)
+
+[node name="Suelo" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202407, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
+shape = SubResource("WorldBoundaryShape3D_4cuv0")
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="Boxes" type="Node3D" parent="Interactables"]
+
+[node name="ResourceBox3d" parent="Interactables/Boxes" instance=ExtResource("4_knv1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62783, 2.64359, 8.60847)
+Item = "Decoration A"
+
+[node name="ResourceBox3d2" parent="Interactables/Boxes" instance=ExtResource("4_knv1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22639, 2.78791, 8.84846)
+Item = "Decoration B"
+
+[node name="Targets" type="Node3D" parent="Interactables"]
+
+[node name="TargetLocation3D" parent="Interactables/Targets" instance=ExtResource("5_tuspj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39523, 3.05874, 7.59255)
+Item = "Decoration A"
+
+[node name="TargetLocation3D2" parent="Interactables/Targets" instance=ExtResource("5_tuspj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.65009, 3.05874, 7.59255)
+Item = "Decoration B"
+
+[node name="Trash" type="Node3D" parent="Interactables"]
+
+[node name="TrashScene" parent="Interactables/Trash" instance=ExtResource("6_3pb3w")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.835, 2.35325, 9.18398)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="PositiveZLight" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
+light_energy = 10.0
+spot_range = 60.0
+spot_angle = 60.0
+
+[node name="NegativeZLight" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 20, -20)
+light_energy = 10.0
+spot_range = 60.0
+spot_angle = 60.0
+
+[node name="PositiveXLight" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 20, 20, 0)
+light_energy = 10.0
+spot_range = 60.0
+spot_angle = 60.0
+
+[node name="NegativeXLight" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(-4.37114e-08, -0.707107, -0.707107, 0, -0.707107, 0.707107, -1, 3.09086e-08, 3.09086e-08, -20, 20, 0)
+light_energy = 10.0
+spot_range = 60.0
+spot_angle = 60.0
+
+[node name="Pivot" parent="." instance=ExtResource("7_po4yu")]
+transform = Transform3D(1, 0, -3.57628e-06, 0, 1, 0, 3.57628e-06, 0, 1, 0, 0, 0)
