@@ -1,14 +1,14 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 5
 const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var rotation_time = 0.5
 var rotate = false
-@onready var sprite_3d = $Sprite3D
 @onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer
 
 
 func _process(_delta):
@@ -34,20 +34,16 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		animation_player.play("Jumping")
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	#Flip the sprite and hitboxes
-	if direction > 0:
-		sprite_3d.flip_h = false
-	elif direction < 0:
-		sprite_3d.flip_h = true
-	
 	#Move the player
 	if direction:
+		animation_player.play("Walking")
 		if self.rotation_degrees.y == 0:
 			velocity.x = direction * SPEED
 		elif self.rotation_degrees.y == 90 or self.rotation_degrees.y == -270:
@@ -57,6 +53,7 @@ func _physics_process(delta):
 		elif self.rotation_degrees.y == -90 or self.rotation_degrees.y == 270:
 			velocity.z = direction * SPEED
 	else:
+		animation_player.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
