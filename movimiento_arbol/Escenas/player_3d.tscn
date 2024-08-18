@@ -1,25 +1,388 @@
-[gd_scene load_steps=4 format=3 uid="uid://dybu74jfcrkbi"]
+[gd_scene load_steps=12 format=3 uid="uid://dybu74jfcrkbi"]
 
 [ext_resource type="Script" path="res://Scripts/player_3d.gd" id="1_udljd"]
-[ext_resource type="Texture2D" uid="uid://dfx4o1e7b1a4y" path="res://Sprites/Minish_Piedra_Suerte_TMC.webp" id="1_wxtif"]
+[ext_resource type="Texture2D" uid="uid://bfsktkop3ot3w" path="res://Sprites/Nariz_duende.png" id="2_6qpxk"]
+[ext_resource type="Texture2D" uid="uid://der1vtghh1ksv" path="res://Sprites/Sombrero_duendo.png" id="3_8j83d"]
+[ext_resource type="Texture2D" uid="uid://bwtg15bimmkcf" path="res://Sprites/Barba_duende.png" id="4_lfja4"]
+[ext_resource type="Texture2D" uid="uid://k1cllypgn2cc" path="res://Sprites/Pie_duende.png" id="5_fq0ya"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2em4j"]
-height = 1.98238
+[sub_resource type="Animation" id="Animation_wyk25"]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id="Animation_pmpef"]
+resource_name = "Jumping"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Nariz:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.435275, 3.13834),
+"update": 0,
+"values": [Vector3(-1.23414, 0, 0.0483181), Vector3(-1.23414, -1.11379, 0.0483181), Vector3(-1.23414, 0, 0.0483181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Nariz:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.420448, 3.36358),
+"update": 0,
+"values": [Vector3(0.708814, 0.819203, 1), Vector3(0.708814, 0.241116, 1), Vector3(0.708814, 1.06718, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Sombrero:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.435276, 2.82843),
+"update": 0,
+"values": [Vector3(-1.19333, 0, 0), Vector3(-1.19333, -0.786399, 0), Vector3(-1.19333, 0.299353, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Sombrero:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.353553, 3.86375),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.441993, 1), Vector3(1, 1.34562, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Barba:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.466516, 2.54912),
+"update": 0,
+"values": [Vector3(-1.20413, 0, 0), Vector3(-1.20413, -0.936318, 0), Vector3(-1.20413, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Barba:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 0.450626, 3.86374),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.526538, 1), Vector3(1, 1.54153, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Pie_L:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(0.366021, 2.73208),
+"update": 0,
+"values": [Vector3(-3.59688, -2.12669, -0.0718683), Vector3(-3.59688, -3.58901, -0.0718683)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Pie_R:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(0.406126, 3.03143),
+"update": 0,
+"values": [Vector3(1.17237, -2.29473, -0.0687826), Vector3(1.17237, -3.81694, -0.0687826)]
+}
+
+[sub_resource type="Animation" id="Animation_cnise"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Nariz:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.23414, 0, 0.0483181)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Nariz:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Nariz:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.708814, 0.819203, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Sombrero:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Sombrero:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Sombrero:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.19333, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Barba:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.20413, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Barba:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprites/Pie_L:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.59688, -2.10656, -0.0718683)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprites/Pie_L:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprites/Pie_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.17237, -2.15918, -0.0687826)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprites/Pie_R:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprites/Barba:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u3kg2"]
+resource_name = "Walking"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Pie_L:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.59688, -2.10656, -0.0718683), Vector3(-3.59688, -0.866844, -0.0718683)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Pie_R:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.17237, -2.15918, -0.0687826), Vector3(1.17237, -0.881885, -0.0687826)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Nariz:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.385194), Vector3(0, 0, -0.366519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Sombrero:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.385194), Vector3(0, 0, -0.366519)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Barba:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.385194), Vector3(0, 0, -0.366519)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwrww"]
+_data = {
+"Idle": SubResource("Animation_wyk25"),
+"Jumping": SubResource("Animation_pmpef"),
+"RESET": SubResource("Animation_cnise"),
+"Walking": SubResource("Animation_u3kg2")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l7v67"]
+height = 1.76073
 
 [node name="Player3D" type="CharacterBody3D"]
+transform = Transform3D(0.576571, 0, 0, 0, 0.544475, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_udljd")
 
+[node name="Sprites" type="Node3D" parent="."]
+transform = Transform3D(0.250721, 0, 0, 0, 0.26433, 0, 0, 0, 1, 0.247223, -0.0799088, 0)
+
+[node name="Nariz" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(0.708814, 0, 0, 0, 0.819203, 0, 0, 0, 1, -1.23414, 0, 0.0483181)
+texture = ExtResource("2_6qpxk")
+
+[node name="Sombrero" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19333, 0, 0)
+texture = ExtResource("3_8j83d")
+
+[node name="Barba" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20413, 0, 0)
+texture = ExtResource("4_lfja4")
+
+[node name="Pie_L" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1.20381, 0, 0, 0, 1.18138, 0, 0, 0, 1, -3.59688, -2.10656, -0.0718683)
+texture = ExtResource("5_fq0ya")
+
+[node name="Pie_R" type="Sprite3D" parent="Sprites"]
+transform = Transform3D(1.18064, 0, 0, 0, 1.1019, 0, 0, 0, 1, 1.17237, -2.15918, -0.0687826)
+flip_h = true
+texture = ExtResource("5_fq0ya")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kwrww")
+}
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.153813, 0, 0, 0)
-shape = SubResource("CylinderShape3D_2em4j")
+transform = Transform3D(1.86232, 0, 0, 0, 0.986228, 0, 0, 0, 0.153813, -0.0133075, 0, 0)
+shape = SubResource("CapsuleShape3D_l7v67")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.588091, 0, 0, 0, 0.696404, 0, 0, 0, 1, 0, 0, 0)
-rotation_edit_mode = 2
-texture = ExtResource("1_wxtif")
-
-[node name="Guide" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37307, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.05749)
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

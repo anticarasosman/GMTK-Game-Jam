@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 5
 const JUMP_VELOCITY = 4.5
 
 @export var coyote_max = 0.12
@@ -15,14 +15,30 @@ var interacting = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var rotation_time = 0.5
 var rotate = false
-@onready var sprite_3d = $Sprite3D
+@onready var timer = $Timer
+@onready var animation_player = $AnimationPlayer
+@onready var pivot = get_tree().get_current_scene().get_node("Pivot")
 
-func _process(delta):
+
+func _process(_delta):
 	if Input.is_action_just_pressed("Rotate_cam_L") and rotate == true:
-		self.rotation_degrees.y -= 90
+		pivot.rotate_cam_L()
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		var tween = create_tween()
+		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,90,0), rotation_time)
+		self.rotate = false
+		timer.start()
 	elif Input.is_action_just_pressed("Rotate_cam_R") and rotate == true:
-		self.rotation_degrees.y += 90
+		pivot.rotate_cam_R()
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		self.rotate = false
+		timer.start()
+		var tween = create_tween()
+		tween.tween_property(self, "rotation_degrees", rotation_degrees+Vector3(0,90,0), rotation_time)
 	if Input.is_action_pressed("interact"): 
 		interacting = true
 	else: 
@@ -40,14 +56,9 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	#Flip the sprite and hitboxes
-	if direction > 0:
-		sprite_3d.flip_h = false
-	elif direction < 0:
-		sprite_3d.flip_h = true
-	
 	#Move the player
 	if direction:
+		animation_player.play("Walking")
 		if self.rotation_degrees.y == 0:
 			velocity.x = direction * SPEED
 		elif self.rotation_degrees.y == 90 or self.rotation_degrees.y == -270:
@@ -57,11 +68,15 @@ func _physics_process(delta):
 		elif self.rotation_degrees.y == -90 or self.rotation_degrees.y == 270:
 			velocity.z = direction * SPEED
 	else:
+		animation_player.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 
+func _on_timer_timeout():
+	self.rotate = true
+  
 func jump_logic(delta):
 	if is_on_floor():
 		coyote_timer = coyote_max
@@ -70,6 +85,7 @@ func jump_logic(delta):
 		jump_buffer_timer = jump_buffer_max
 	
 	if coyote_timer > 0 and jump_buffer_timer > 0 and not is_jumping:
+		animation_player.play("Jumping")
 		is_jumping = true
 		coyote_timer = 0
 		jump_buffer_timer = 0

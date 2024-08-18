@@ -1,21 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://cifrfi5rveflg"]
+[gd_scene load_steps=10 format=3 uid="uid://cifrfi5rveflg"]
 
 [ext_resource type="PackedScene" uid="uid://djeqk0qu14d7n" path="res://Escenas/rotation_zone.tscn" id="1_ldjtj"]
-[ext_resource type="Material" uid="uid://dju0lqwb7nhus" path="res://materials/tree_material.tres" id="2_lslbi"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="2_v2t0x"]
 [ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="3_rso4s"]
 [ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="4_voard"]
 [ext_resource type="PackedScene" uid="uid://22aje1rlcpcg" path="res://Escenas/trash_scene.tscn" id="5_5dk7a"]
-[ext_resource type="PackedScene" uid="uid://2d3ikqxewklv" path="res://Escenas/pivot.tscn" id="6_pnftu"]
+[ext_resource type="PackedScene" uid="uid://2d3ikqxewklv" path="res://Escenas/pivot.tscn" id="6_j0vnn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oglcv"]
-material = ExtResource("2_lslbi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aj5yh"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
 
-[node name="Pick-and-place" type="Node3D"]
+[node name="Intento de arbol" type="Node3D"]
 
 [node name="Rotation Zones" type="Node3D" parent="."]
 
@@ -31,20 +29,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.3703, 3.70673, 9.09083)
 [node name="Rotation_zone4" parent="Rotation Zones" instance=ExtResource("1_ldjtj")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.706, 3.70673, -9.64756)
 
-[node name="Cam Positions" type="Node3D" parent="."]
-
-[node name="Cam1" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163778, -0.489018, 1.49622)
-
-[node name="Cam2" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6079, 0.0633963, -1.32145)
-
-[node name="Cam3" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37952, 0.0633963, -4.81095)
-
-[node name="Cam4" type="Node3D" parent="Cam Positions"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2277, 0.0633963, -1.32211)
-
 [node name="Arbol" type="Node3D" parent="."]
 transform = Transform3D(8.24041, 0, 0, 0, 15.1983, 0, 0, 0, 7.53422, 0, 0, 0)
 
@@ -58,7 +42,7 @@ mesh = SubResource("BoxMesh_oglcv")
 shape = SubResource("BoxShape3D_aj5yh")
 
 [node name="2" type="StaticBody3D" parent="Arbol"]
-transform = Transform3D(-8.74228e-08, 0, 2, 0, 0.3, 0, -2, 0, -8.74228e-08, 0, 0.15, 0)
+transform = Transform3D(2, 0, 0, 0, 0.3, 0, 0, 0, 2, 0, 0.15, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/2"]
 mesh = SubResource("BoxMesh_oglcv")
@@ -67,10 +51,11 @@ mesh = SubResource("BoxMesh_oglcv")
 shape = SubResource("BoxShape3D_aj5yh")
 
 [node name="3" type="StaticBody3D" parent="Arbol"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 0.3, 0, 8.74228e-08, 0, -1, 0, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/3"]
 mesh = SubResource("BoxMesh_oglcv")
+skeleton = NodePath("../../3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/3"]
 shape = SubResource("BoxShape3D_aj5yh")
@@ -84,58 +69,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202407, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
 shape = SubResource("WorldBoundaryShape3D_4cuv0")
 
-[node name="Interactables" type="Node3D" parent="."]
-
-[node name="Boxes" type="Node3D" parent="Interactables"]
-
-[node name="ResourceBox3d" parent="Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d" parent="." instance=ExtResource("3_rso4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62783, 2.64359, 8.60847)
 Item = "Decoration A"
 
-[node name="ResourceBox3d2" parent="Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d2" parent="." instance=ExtResource("3_rso4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22639, 2.78791, 8.84846)
 Item = "Decoration B"
 
-[node name="Targets" type="Node3D" parent="Interactables"]
-
-[node name="TargetLocation3D" parent="Interactables/Targets" instance=ExtResource("4_voard")]
+[node name="TargetLocation3D" parent="." instance=ExtResource("4_voard")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39523, 3.05874, 7.59255)
 Item = "Decoration A"
 
-[node name="TargetLocation3D2" parent="Interactables/Targets" instance=ExtResource("4_voard")]
+[node name="TargetLocation3D2" parent="." instance=ExtResource("4_voard")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.65009, 3.05874, 7.59255)
 Item = "Decoration B"
 
-[node name="Trash" type="Node3D" parent="Interactables"]
-
-[node name="TrashScene" parent="Interactables/Trash" instance=ExtResource("5_5dk7a")]
+[node name="TrashScene" parent="." instance=ExtResource("5_5dk7a")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.835, 2.35325, 9.18398)
 
-[node name="Lights" type="Node3D" parent="."]
-
-[node name="PositiveZLight" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20)
-light_energy = 10.0
-spot_range = 60.0
-spot_angle = 60.0
-
-[node name="NegativeZLight" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 20, -20)
-light_energy = 10.0
-spot_range = 60.0
-spot_angle = 60.0
-
-[node name="PositiveXLight" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, 0.707107, 0.707107, -1, 3.09086e-08, -3.09086e-08, 20, 20, 0)
-light_energy = 10.0
-spot_range = 60.0
-spot_angle = 60.0
-
-[node name="NegativeXLight" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(-4.37114e-08, -0.707107, -0.707107, 0, -0.707107, 0.707107, -1, 3.09086e-08, 3.09086e-08, -20, 20, 0)
-light_energy = 10.0
-spot_range = 60.0
-spot_angle = 60.0
-
-[node name="Pivot" parent="." instance=ExtResource("6_pnftu")]
-transform = Transform3D(1, 0, -3.57628e-06, 0, 1, 0, 3.57628e-06, 0, 1, 0, 0, 0)
+[node name="Pivot" parent="." instance=ExtResource("6_j0vnn")]
+transform = Transform3D(0.999914, 0, 0.0131383, 0, 1, 0, -0.0131383, 0, 0.999914, -0.227027, 1.48297, -0.617166)
