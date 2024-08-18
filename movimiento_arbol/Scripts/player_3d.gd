@@ -19,17 +19,20 @@ var rotation_time = 0.5
 var rotate = false
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
+@onready var pivot = get_tree().get_current_scene().get_node("Pivot")
 
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Rotate_cam_L") and rotate == true:
+		pivot.rotate_cam_L()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		self.rotate = false
-		timer.start()
 		var tween = create_tween()
 		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(0,90,0), rotation_time)
+		self.rotate = false
+		timer.start()
 	elif Input.is_action_just_pressed("Rotate_cam_R") and rotate == true:
+		pivot.rotate_cam_R()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		self.rotate = false
@@ -82,7 +85,7 @@ func jump_logic(delta):
 		jump_buffer_timer = jump_buffer_max
 	
 	if coyote_timer > 0 and jump_buffer_timer > 0 and not is_jumping:
-    animation_player.play("Jumping")
+		animation_player.play("Jumping")
 		is_jumping = true
 		coyote_timer = 0
 		jump_buffer_timer = 0
