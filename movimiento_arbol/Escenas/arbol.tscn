@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://tjqjq7686f4w"]
+[gd_scene load_steps=4 format=3 uid="uid://tjqjq7686f4w"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_plro1"]
+[ext_resource type="Script" path="res://Scripts/arbol.gd" id="1_2sjd1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0jmcu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6joft"]
 
 [node name="Arbol" type="Node3D"]
+transform = Transform3D(0.997896, 0.0648284, 0, -0.0648284, 0.997896, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_2sjd1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(4.70105, 0, 0, 0, 1, 0, 0, 0, 4.83849, 0, 0, 0)
-shape = SubResource("BoxShape3D_plro1")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 2.34028, 0, 0, 0, 1, 1.49012e-08, 2.84402, 0.163827)
+mesh = SubResource("CapsuleMesh_0jmcu")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 2.34028, 0, 0, 0, 1, 1.49012e-08, 2.84402, 0.163827)
+shape = SubResource("CapsuleShape3D_6joft")
