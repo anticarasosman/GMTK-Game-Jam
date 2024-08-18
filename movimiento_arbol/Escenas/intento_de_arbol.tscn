@@ -86,7 +86,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.0137, 3.70673, -9.44201)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.3703, 3.70673, 9.09083)
 
 [node name="Rotation_zone4" parent="Arbol/Hojas/Rotation Zones" instance=ExtResource("1_f05af")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.706, 3.70673, -9.64756)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.1273, 3.70673, -8.96727)
 
 [connection signal="button_down" from="CanvasLayer/BoxContainer/Front" to="Arbol" method="_on_front_button_down"]
 [connection signal="button_down" from="CanvasLayer/BoxContainer/Back" to="Arbol" method="_on_back_button_down"]
