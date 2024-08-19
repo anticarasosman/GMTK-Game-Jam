@@ -21,6 +21,7 @@ var rotate = false
 @onready var timer = $Timer
 @onready var animation_player = $AnimationPlayer
 @onready var pivot = get_tree().get_current_scene().get_node("Pivot")
+@onready var arbol = get_tree().get_current_scene().get_node("Arbol")
 
 
 func _process(_delta):
