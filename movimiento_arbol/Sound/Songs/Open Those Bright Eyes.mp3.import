@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://en52n5t7tto"
+path="res://.godot/imported/Open Those Bright Eyes.mp3-09faf410e890fb5a30fd5d6f64051b19.mp3str"
+
+[deps]
+
+source_file="res://Sound/Songs/Open Those Bright Eyes.mp3"
+dest_files=["res://.godot/imported/Open Those Bright Eyes.mp3-09faf410e890fb5a30fd5d6f64051b19.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
