@@ -1,6 +1,7 @@
 extends Control
 
 func _on_start_pressed():
+	AudioPlayer.start_game()
 	get_tree().change_scene_to_file("res://Escenas/pick-and-place_3d.tscn")
 
 func _on_options_pressed():

@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
 const SPEED = 5
-const JUMP_VELOCITY = 4.5
+const LEVEL_SPEED = 10
+const JUMP_VELOCITY = 6
 
 @export var coyote_max = 0.12
 @export var jump_buffer_max = 0.2
@@ -56,18 +57,23 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
+	var up_down = Input.get_axis("jump", "move_down")
 	
 	#Move the player
-	if direction:
+	if direction or up_down:
 		animation_player.play("Walking")
 		if self.rotation_degrees.y == 0:
 			velocity.x = direction * SPEED
+			velocity.z = up_down * LEVEL_SPEED
 		elif self.rotation_degrees.y == 90 or self.rotation_degrees.y == -270:
 			velocity.z = -direction * SPEED
+			velocity.x = up_down * LEVEL_SPEED
 		elif self.rotation_degrees.y == 180 or self.rotation_degrees.y == -180:
 			velocity.x = -direction * SPEED
+			velocity.z = -up_down * LEVEL_SPEED
 		elif self.rotation_degrees.y == -90 or self.rotation_degrees.y == 270:
 			velocity.z = direction * SPEED
+			velocity.x = -up_down * LEVEL_SPEED
 	else:
 		animation_player.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
