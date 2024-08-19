@@ -19,38 +19,11 @@ material = ExtResource("2_lslbi")
 [node name="Pick-and-place" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.208, 0)
 
+[node name="Player3D" parent="." instance=ExtResource("2_v2t0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)
+
 [node name="Arbol" parent="." instance=ExtResource("1_s2u1e")]
 transform = Transform3D(3.92386, 0, 0, 0, 2.8759, 0, 0, 0, 3.11415, 0.0153393, -15.1153, 0.00138402)
-
-[node name="Interactables" type="Node3D" parent="Arbol"]
-transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
-
-[node name="Boxes" type="Node3D" parent="Arbol/Interactables"]
-
-[node name="ResourceBox3d" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62783, 2.94856, 8.60847)
-Item = "Decoration A"
-mass = 10
-
-[node name="ResourceBox3d2" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.22639, 2.78791, 8.84846)
-Item = "Decoration B"
-
-[node name="Targets" type="Node3D" parent="Arbol/Interactables"]
-
-[node name="TargetLocation3D" parent="Arbol/Interactables/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39523, 3.05874, 7.59255)
-Item = "Decoration A"
-Adorno = NodePath("../../Boxes/ResourceBox3d")
-
-[node name="TargetLocation3D2" parent="Arbol/Interactables/Targets" instance=ExtResource("4_voard")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.65009, 3.05874, 7.59255)
-Item = "Decoration B"
-
-[node name="Trash" type="Node3D" parent="Arbol/Interactables"]
-
-[node name="TrashScene" parent="Arbol/Interactables/Trash" instance=ExtResource("5_5dk7a")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.835, 2.35325, 9.18398)
 
 [node name="Rotation Zones" type="Node3D" parent="Arbol"]
 transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
@@ -97,6 +70,38 @@ mesh = SubResource("BoxMesh_oglcv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/Hojas/3"]
 shape = SubResource("BoxShape3D_aj5yh")
 
+[node name="Targets" type="Node3D" parent="Arbol"]
+transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
+
+[node name="TargetLocation3D" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+transform = Transform3D(-8.74577e-08, 0, -1, 0, 1, 0, 2.0008, 0, -4.37114e-08, -1.39523, 3.05874, 7.59255)
+Item = "Decoration A"
+Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d")
+
+[node name="TargetLocation3D2" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+transform = Transform3D(-9.60933e-08, 0, -1, 0, 1, 0, 2.19836, 0, -4.37114e-08, -6.65009, 3.05874, 7.59255)
+Item = "Decoration B"
+Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d2")
+
+[node name="Interactables" type="Node3D" parent="Arbol"]
+transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
+
+[node name="Boxes" type="Node3D" parent="Arbol/Interactables"]
+
+[node name="ResourceBox3d" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.56369, 3.62783, 2.94856, 9.61683)
+Item = "Decoration A"
+mass = 10
+
+[node name="ResourceBox3d2" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.35642, -3.22639, 2.78791, 9.48641)
+Item = "Decoration B"
+
+[node name="Trash" type="Node3D" parent="Arbol/Interactables"]
+
+[node name="TrashScene" parent="Arbol/Interactables/Trash" instance=ExtResource("5_5dk7a")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -9.835, 2.35325, 9.18398)
+
 [node name="Suelo" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202407, 0)
 
@@ -131,6 +136,3 @@ spot_angle = 60.0
 
 [node name="Pivot" parent="." instance=ExtResource("6_pnftu")]
 transform = Transform3D(1, 0, -3.57628e-06, 0, 1, 0, 3.57628e-06, 0, 1, 0, 0, 0)
-
-[node name="Player3D" parent="." instance=ExtResource("2_v2t0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)

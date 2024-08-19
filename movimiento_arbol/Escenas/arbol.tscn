@@ -7,7 +7,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6joft"]
 
 [node name="Arbol" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_2sjd1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
