@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://clxqmugyqd6b6"]
+
+[ext_resource type="Shader" path="res://Shaders/skybox.gdshader" id="1_asaci"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khelp"]
+shader = ExtResource("1_asaci")
+shader_parameter/skyColor = Color(0, 0.556863, 1, 1)
+shader_parameter/horizonColor = Color(0.188235, 0.701961, 0, 1)
+
+[sub_resource type="Sky" id="Sky_wkd85"]
+sky_material = SubResource("ShaderMaterial_khelp")
+
+[sub_resource type="Environment" id="Environment_561cn"]
+background_mode = 2
+sky = SubResource("Sky_wkd85")
+ambient_light_source = 3
+ambient_light_color = Color(0, 1, 1, 1)
+reflected_light_source = 2
+
+[node name="WinterTownSkyBox" type="WorldEnvironment"]
+environment = SubResource("Environment_561cn")
