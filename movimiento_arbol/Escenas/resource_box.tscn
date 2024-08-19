@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://db7si67tnkai1"]
 
 [ext_resource type="Script" path="res://scripts/resource_box_3d.gd" id="1_bdgqy"]
-[ext_resource type="ArrayMesh" uid="uid://cpo2q82sfyrao" path="res://models/Cardboard box.obj" id="1_pudie"]
+[ext_resource type="Texture2D" uid="uid://b7irb53nk1vl6" path="res://Sprites/Decoracion.png" id="2_ht1k0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbwbh"]
 
@@ -9,10 +9,11 @@
 script = ExtResource("1_bdgqy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.78249, 0, 0, 0)
 shape = SubResource("BoxShape3D_sbwbh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = ExtResource("1_pudie")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.232723, 0, 0, 0, 0.245767, 0, 0, 0, 1, 0, 0.000447333, 0)
+texture = ExtResource("2_ht1k0")
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
