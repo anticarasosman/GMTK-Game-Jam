@@ -15,6 +15,10 @@ run/main_scene="res://Escenas/pick-and-place_3d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioPlayer="*res://Escenas/Global/AudioPlayer.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
