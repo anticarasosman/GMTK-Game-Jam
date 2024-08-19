@@ -1,14 +1,13 @@
 extends Node3D
 
-var Mass_Front = 0
-var Mass_Back = 0
-var Mass_Left = 0
-var Mass_Right = 0
+func _process(_delta):
+	if rotation_degrees.x > 11 or rotation_degrees.z > 11:
+		get_tree().change_scene_to_file("res://Escenas/control.tscn")
 
 func add_mass(mass, Zone):
 	if Zone == "Front":
 		var tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(-mass,0,0), sqrt(mass))
+		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(-mass,0,0), mass)
 	elif Zone == "Back":
 		var tween = create_tween()
 		tween.tween_property(self, "rotation_degrees", rotation_degrees-Vector3(mass,0,0), mass)
