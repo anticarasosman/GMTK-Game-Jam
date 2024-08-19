@@ -29,7 +29,7 @@ func _on_body_exited(body):
 
 func Pick_up():
 	if Player_inside:
-		print("In the inventory: ", player_3d.inventory)
+		#print("In the inventory: ", player_3d.inventory)
 		if player_3d.inventory == "" && player_3d.interacting && Completed == false:
 			Picked_up = true
 			player_3d.inventory = Item
