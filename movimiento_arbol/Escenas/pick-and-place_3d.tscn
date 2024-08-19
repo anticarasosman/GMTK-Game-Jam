@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://djeqk0qu14d7n" path="res://Escenas/rotation_zone.tscn" id="1_ldjtj"]
 [ext_resource type="PackedScene" uid="uid://tjqjq7686f4w" path="res://Escenas/arbol.tscn" id="1_s2u1e"]
-[ext_resource type="Material" path="res://materials/tree_material.tres" id="2_lslbi"]
+[ext_resource type="Material" uid="uid://dju0lqwb7nhus" path="res://materials/tree_material.tres" id="2_lslbi"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="2_v2t0x"]
 [ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="3_rso4s"]
 [ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="4_voard"]

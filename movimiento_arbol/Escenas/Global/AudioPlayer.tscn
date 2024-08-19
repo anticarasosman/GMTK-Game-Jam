@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btdddebqplayr"]
 
-[ext_resource type="Script" path="res://Escenas/Global/audio_player.gd" id="1_n7mst"]
+[ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_n7mst"]
 
 [node name="AudioPlayer" type="AudioStreamPlayer"]
 script = ExtResource("1_n7mst")

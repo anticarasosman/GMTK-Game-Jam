@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpuy3xwvw1dq6"]
+[gd_scene load_steps=9 format=3 uid="uid://bpuy3xwvw1dq6"]
 
 [ext_resource type="PackedScene" uid="uid://bq5ymx25do5lm" path="res://Escenas/Nivel_Arbol.tscn" id="1_pieiv"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="3_yeuhc"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="5_tuspj"]
 [ext_resource type="PackedScene" uid="uid://22aje1rlcpcg" path="res://Escenas/trash_scene.tscn" id="6_3pb3w"]
 [ext_resource type="PackedScene" path="res://Escenas/pivot.tscn" id="7_po4yu"]
+[ext_resource type="PackedScene" uid="uid://clxqmugyqd6b6" path="res://Escenas/skybox.tscn" id="7_ykemn"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
 
-[node name="Pick-and-place" type="Node3D"]
+[node name="Pick-and-place2" type="Node3D"]
 
 [node name="Cam Positions" type="Node3D" parent="."]
 
@@ -104,3 +105,5 @@ spot_angle = 60.0
 
 [node name="Pivot" parent="." instance=ExtResource("7_po4yu")]
 transform = Transform3D(1, 0, -3.57628e-06, 0, 1, 0, 3.57628e-06, 0, 1, 0, 0, 0)
+
+[node name="WinterTownSkyBox" parent="." instance=ExtResource("7_ykemn")]
