@@ -31,6 +31,9 @@ func _on_body_exited(body):
 func Pick_up():
 	if player_3d.inventory == Item && player_3d.interacting && not completed && Player_inside == true:
 		player_3d.inventory = ""
+		var child = player_3d.get_child(len(player_3d.get_children())-1)
+		player_3d.remove_child(child)
+		self.get_parent().add_child(child)
 		completed = true
 		arbol.add_mass(Adorno.mass, Zone)
 		#Determina la posicion del adorno al colocar

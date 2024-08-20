@@ -15,7 +15,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Picked_up == true:
 		Completed = true
-		self.position = player_3d.position + Vector3(0,1,0)
+		self.get_parent().remove_child(self)
+		player_3d.add_child(self)
+		self.position = player_3d.position
 		self.rotation_degrees = player_3d.rotation_degrees
 	Pick_up()
 
