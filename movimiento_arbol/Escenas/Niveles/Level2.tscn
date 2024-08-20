@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://b1uixqjanwd1y"]
 
-[ext_resource type="PackedScene" uid="uid://clxqmugyqd6b6" path="res://Escenas/skybox.tscn" id="1_hh0gk"]
+[ext_resource type="PackedScene" path="res://Escenas/skybox.tscn" id="1_hh0gk"]
 [ext_resource type="PackedScene" uid="uid://tjqjq7686f4w" path="res://Escenas/arbol.tscn" id="2_wkkna"]
-[ext_resource type="PackedScene" uid="uid://bq5ymx25do5lm" path="res://Escenas/Nivel_Arbol.tscn" id="3_ikif6"]
+[ext_resource type="PackedScene" path="res://Escenas/Nivel_Arbol.tscn" id="3_ikif6"]
 [ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="4_rl12v"]
 [ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="5_apg33"]
 [ext_resource type="Script" path="res://scripts/targets.gd" id="5_gkhes"]
-[ext_resource type="PackedScene" path="res://Escenas/pivot.tscn" id="6_osvxe"]
+[ext_resource type="PackedScene" uid="uid://2d3ikqxewklv" path="res://Escenas/pivot.tscn" id="6_osvxe"]
 [ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="7_d4x7e"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4cuv0"]
