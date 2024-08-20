@@ -31,16 +31,19 @@ func _on_body_exited(body):
 func Pick_up():
 	if player_3d.inventory == Item && player_3d.interacting && not completed && Player_inside == true:
 		player_3d.inventory = ""
+		var child = player_3d.get_child(len(player_3d.get_children())-1)
+		player_3d.remove_child(child)
+		self.get_parent().add_child(child)
 		completed = true
 		arbol.add_mass(Adorno.mass, Zone)
 		#Determina la posicion del adorno al colocar
 		if Zone == "Front":
-			Adorno.position = self.position + Vector3(0,-2,4)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Back":
-			Adorno.position = self.position + Vector3(0,-2,-4)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Left":
-			Adorno.position = self.position + Vector3(-4,-2,0)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Right":
-			Adorno.position = self.position + Vector3(5,-2,0)
-		Adorno.Picked_up = false
-		print("COMPLETED")
+			player_3d.inventory_instance.position = self.position
+		player_3d.inventory_instance.Picked_up = false
+		self.queue_free()
