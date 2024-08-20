@@ -30,7 +30,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.8, 0, -0.345299, 0)
 transform = Transform3D(0.6, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0, -0.159309, 0)
 
 [node name="NivelArbol2" parent="Arbol/Hojas" instance=ExtResource("3_ikif6")]
-transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0.0608881, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0.032752, 0)
 
 [node name="Targets" type="Node3D" parent="Arbol"]
 transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.94629, -0.00044443)
