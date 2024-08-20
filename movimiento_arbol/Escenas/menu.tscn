@@ -29,8 +29,7 @@ offset_right = 951.0
 offset_bottom = 301.0
 theme_override_fonts/font = ExtResource("4_vxkj4")
 theme_override_font_sizes/font_size = 66
-text = "JUEGO DE NAVIDAD
-"
+text = "ELF  ON  THE  EDGE"
 flat = true
 
 [node name="Start" type="Node" parent="."]

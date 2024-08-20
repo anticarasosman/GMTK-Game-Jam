@@ -35,7 +35,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0, 0.032752, 0)
 [node name="Targets" type="Node3D" parent="Arbol"]
 transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.94629, -0.00044443)
 script = ExtResource("5_gkhes")
-nextScene = "res://Escenas/Niveles/Level2.tscn"
+nextScene = "res://Escenas/endscreen.tscn"
 
 [node name="TargetLocation3D" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_rl12v")]
 transform = Transform3D(-8.74577e-08, 0, -1, 0, 1, 0, 2.0008, 0, -4.37114e-08, -2.78577, 3.05874, 7.59255)
