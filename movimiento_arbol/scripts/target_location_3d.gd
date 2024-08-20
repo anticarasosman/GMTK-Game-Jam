@@ -35,12 +35,12 @@ func Pick_up():
 		arbol.add_mass(Adorno.mass, Zone)
 		#Determina la posicion del adorno al colocar
 		if Zone == "Front":
-			Adorno.position = self.position + Vector3(0,-2,4)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Back":
-			Adorno.position = self.position + Vector3(0,-2,-4)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Left":
-			Adorno.position = self.position + Vector3(-4,-2,0)
+			player_3d.inventory_instance.position = self.position
 		elif Zone == "Right":
-			Adorno.position = self.position + Vector3(5,-2,0)
-		Adorno.Picked_up = false
-		print("COMPLETED")
+			player_3d.inventory_instance.position = self.position
+		player_3d.inventory_instance.Picked_up = false
+		self.queue_free()

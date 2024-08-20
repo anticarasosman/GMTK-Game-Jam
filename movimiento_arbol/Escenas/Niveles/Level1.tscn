@@ -47,24 +47,24 @@ script = ExtResource("5_jyvkg")
 nextScene = "res://Escenas/Niveles/Level2.tscn"
 
 [node name="TargetLocation3D" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
-transform = Transform3D(-8.74577e-08, 0, -1, 0, 1, 0, 2.0008, 0, -4.37114e-08, -0.0549777, 3.05874, 7.59255)
+transform = Transform3D(-8.74577e-08, 0, -1, 0, 1, 0, 2.0008, 0, -4.37114e-08, -0.0549777, 2.51084, 7.59255)
 Item = "Decoration A"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d")
 
 [node name="TargetLocation3D2" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
-transform = Transform3D(-2.19821, 0, 0.0117982, 0, 1, 0, -0.0259366, 0, -0.99993, -8.37067, 3.05874, 0.178569)
+transform = Transform3D(-2.19821, 0, 0.0117982, 0, 1, 0, -0.0259366, 0, -0.99993, -8.37067, 2.51084, 0.178569)
 Item = "Decoration B"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d2")
 Zone = "Left"
 
 [node name="TargetLocation3D3" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
-transform = Transform3D(-0.029773, 0, 0.999908, 0, 1, 0, -2.19816, 0, -0.0135433, -0.199615, 3.05874, -7.66665)
+transform = Transform3D(-0.029773, 0, 0.999908, 0, 1, 0, -2.19816, 0, -0.0135433, -0.199615, 2.51084, -7.66665)
 Item = "Decoration C"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d3")
 Zone = "Back"
 
 [node name="TargetLocation3D4" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
-transform = Transform3D(2.19833, 0, -0.00509641, 0, 1, 0, 0.0112038, 0, 0.999987, 8.26705, 3.05874, 0.0898015)
+transform = Transform3D(2.19833, 0, -0.00509641, 0, 1, 0, 0.0112038, 0, 0.999987, 8.26705, 2.51084, 0.0898015)
 Item = "Decoration D"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d4")
 Zone = "Right"

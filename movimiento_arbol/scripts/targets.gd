@@ -7,15 +7,12 @@ var completed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	children = get_children()
+	
 	print(children)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var completed = true
-	for child in children:
-		if not child.completed:
-			completed = false
-	if completed:
+	children = get_children()
+	if len(children) == 0:
 		get_tree().change_scene_to_file(nextScene)

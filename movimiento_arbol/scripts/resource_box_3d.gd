@@ -33,3 +33,4 @@ func Pick_up():
 		if player_3d.inventory == "" && player_3d.interacting && Completed == false:
 			Picked_up = true
 			player_3d.inventory = Item
+			player_3d.inventory_instance = self
