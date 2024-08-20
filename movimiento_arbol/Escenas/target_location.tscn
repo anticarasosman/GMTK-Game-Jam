@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3fmbg42rq6kb"]
+[gd_scene load_steps=6 format=3 uid="uid://3fmbg42rq6kb"]
 
 [ext_resource type="Script" path="res://scripts/target_location_3d.gd" id="1_g2c4b"]
 [ext_resource type="Material" uid="uid://bs5i2mj6f5xax" path="res://materials/objective material.tres" id="2_en4rb"]
@@ -6,6 +6,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_sbwbh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5tuqe"]
+material = ExtResource("2_en4rb")
+size = Vector3(1, 8, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_7gdic"]
 material = ExtResource("2_en4rb")
 
 [node name="TargetLocation3D" type="Area3D"]
@@ -17,5 +21,9 @@ transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.95, 0, 0)
 shape = SubResource("BoxShape3D_sbwbh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.000103965, 0.5, 0.00445807)
 mesh = SubResource("BoxMesh_5tuqe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-2.26494e-07, 2.62268e-07, 1, -2.62268e-07, -3, 8.74228e-08, 3, -2.62268e-07, 7.54979e-08, 0, -4.04687, 0)
+mesh = SubResource("PrismMesh_7gdic")

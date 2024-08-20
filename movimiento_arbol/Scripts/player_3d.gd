@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 5
 const LEVEL_SPEED = 10
-const JUMP_VELOCITY = 6
+const JUMP_VELOCITY = 10
 
 @export var coyote_max = 0.12
 @export var jump_buffer_max = 0.2

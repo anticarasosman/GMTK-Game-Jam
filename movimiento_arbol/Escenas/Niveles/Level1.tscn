@@ -1,17 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cifrfi5rveflg"]
+[gd_scene load_steps=13 format=3 uid="uid://cifrfi5rveflg"]
 
-[ext_resource type="PackedScene" uid="uid://djeqk0qu14d7n" path="res://Escenas/rotation_zone.tscn" id="1_ldjtj"]
-[ext_resource type="PackedScene" uid="uid://tjqjq7686f4w" path="res://Escenas/arbol.tscn" id="1_s2u1e"]
-[ext_resource type="Material" uid="uid://dju0lqwb7nhus" path="res://materials/tree_material.tres" id="2_lslbi"]
-[ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="2_v2t0x"]
-[ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="3_rso4s"]
-[ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="4_voard"]
-[ext_resource type="PackedScene" uid="uid://22aje1rlcpcg" path="res://Escenas/trash_scene.tscn" id="5_5dk7a"]
-[ext_resource type="PackedScene" path="res://Escenas/pivot.tscn" id="6_pnftu"]
-
+[ext_resource type="PackedScene" uid="uid://dybu74jfcrkbi" path="res://Escenas/player_3d.tscn" id="1_1vumt"]
+[ext_resource type="PackedScene" uid="uid://tjqjq7686f4w" path="res://Escenas/arbol.tscn" id="2_oej66"]
+[ext_resource type="PackedScene" uid="uid://bq5ymx25do5lm" path="res://Escenas/Nivel_Arbol.tscn" id="3_m0d35"]
+[ext_resource type="Material" uid="uid://dju0lqwb7nhus" path="res://materials/tree_material.tres" id="4_fnunf"]
+[ext_resource type="Script" path="res://scripts/targets.gd" id="5_jyvkg"]
+[ext_resource type="PackedScene" uid="uid://3fmbg42rq6kb" path="res://Escenas/target_location.tscn" id="5_vqile"]
+[ext_resource type="PackedScene" uid="uid://db7si67tnkai1" path="res://Escenas/resource_box.tscn" id="6_eq40k"]
+[ext_resource type="PackedScene" path="res://Escenas/pivot.tscn" id="7_5836s"]
+[ext_resource type="PackedScene" uid="uid://clxqmugyqd6b6" path="res://Escenas/skybox.tscn" id="8_f3m86"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oglcv"]
-material = ExtResource("2_lslbi")
+material = ExtResource("4_fnunf")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aj5yh"]
 
@@ -20,38 +20,17 @@ material = ExtResource("2_lslbi")
 [node name="Pick-and-place" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.208, 0)
 
-[node name="Player3D" parent="." instance=ExtResource("2_v2t0x")]
+[node name="Player3D" parent="." instance=ExtResource("1_1vumt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.362, 3.789, 8.89)
 
-[node name="Arbol" parent="." instance=ExtResource("1_s2u1e")]
+[node name="Arbol" parent="." instance=ExtResource("2_oej66")]
 transform = Transform3D(3.92386, 0, 0, 0, 2.8759, 0, 0, 0, 3.11415, 0.0153393, -15.1153, 0.00138402)
-
-[node name="Rotation Zones" type="Node3D" parent="Arbol"]
-transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
-
-[node name="Rotation_zone" parent="Arbol/Rotation Zones" instance=ExtResource("1_ldjtj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.0137, 3.70673, 9.09083)
-
-[node name="Rotation_zone2" parent="Arbol/Rotation Zones" instance=ExtResource("1_ldjtj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 10.0137, 3.70673, -9.44201)
-
-[node name="Rotation_zone3" parent="Arbol/Rotation Zones" instance=ExtResource("1_ldjtj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.3703, 3.70673, 9.09083)
-
-[node name="Rotation_zone4" parent="Arbol/Rotation Zones" instance=ExtResource("1_ldjtj")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.706, 3.70673, -9.64756)
 
 [node name="Hojas" type="Node3D" parent="Arbol"]
 transform = Transform3D(2.10008, 0, 0, 0, 5.28471, 0, 0, 0, 2.41935, -0.00390924, 5.25584, -0.00044443)
 
-[node name="1" type="StaticBody3D" parent="Arbol/Hojas"]
-transform = Transform3D(3, 0, 0, 0, 0.3, 0, 0, 0, 3, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/Hojas/1"]
-mesh = SubResource("BoxMesh_oglcv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/Hojas/1"]
-shape = SubResource("BoxShape3D_aj5yh")
+[node name="NivelArbol" parent="Arbol/Hojas" instance=ExtResource("3_m0d35")]
+transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.6, 0, -0.0754355, 0)
 
 [node name="2" type="StaticBody3D" parent="Arbol/Hojas"]
 transform = Transform3D(2, 0, 0, 0, 0.3, 0, 0, 0, 2, 0, 0.15, 0)
@@ -62,36 +41,29 @@ mesh = SubResource("BoxMesh_oglcv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/Hojas/2"]
 shape = SubResource("BoxShape3D_aj5yh")
 
-[node name="3" type="StaticBody3D" parent="Arbol/Hojas"]
-transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.3, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arbol/Hojas/3"]
-mesh = SubResource("BoxMesh_oglcv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arbol/Hojas/3"]
-shape = SubResource("BoxShape3D_aj5yh")
-
 [node name="Targets" type="Node3D" parent="Arbol"]
 transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390924, 5.25584, -0.00044443)
+script = ExtResource("5_jyvkg")
+nextScene = "res://Escenas/Niveles/Level2.tscn"
 
-[node name="TargetLocation3D" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+[node name="TargetLocation3D" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
 transform = Transform3D(-8.74577e-08, 0, -1, 0, 1, 0, 2.0008, 0, -4.37114e-08, -0.0549777, 3.05874, 7.59255)
 Item = "Decoration A"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d")
 
-[node name="TargetLocation3D2" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+[node name="TargetLocation3D2" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
 transform = Transform3D(-2.19821, 0, 0.0117982, 0, 1, 0, -0.0259366, 0, -0.99993, -8.37067, 3.05874, 0.178569)
 Item = "Decoration B"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d2")
 Zone = "Left"
 
-[node name="TargetLocation3D3" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+[node name="TargetLocation3D3" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
 transform = Transform3D(-0.029773, 0, 0.999908, 0, 1, 0, -2.19816, 0, -0.0135433, -0.199615, 3.05874, -7.66665)
 Item = "Decoration C"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d3")
 Zone = "Back"
 
-[node name="TargetLocation3D4" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("4_voard")]
+[node name="TargetLocation3D4" parent="Arbol/Targets" node_paths=PackedStringArray("Adorno") instance=ExtResource("5_vqile")]
 transform = Transform3D(2.19833, 0, -0.00509641, 0, 1, 0, 0.0112038, 0, 0.999987, 8.26705, 3.05874, 0.0898015)
 Item = "Decoration D"
 Adorno = NodePath("../../Interactables/Boxes/ResourceBox3d4")
@@ -102,22 +74,22 @@ transform = Transform3D(0.254851, 0, 0, 0, 0.347717, 0, 0, 0, 0.321115, -0.00390
 
 [node name="Boxes" type="Node3D" parent="Arbol/Interactables"]
 
-[node name="ResourceBox3d" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d" parent="Arbol/Interactables/Boxes" instance=ExtResource("6_eq40k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.56369, 3.62783, 2.94856, 9.61683)
 Item = "Decoration A"
-mass = 12
+mass = 5
 
-[node name="ResourceBox3d2" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d2" parent="Arbol/Interactables/Boxes" instance=ExtResource("6_eq40k")]
 transform = Transform3D(0.0162134, 0, -1.35624, 0, 1, 0, 0.999869, 0, 0.0219922, -10.3213, 2.78791, -1.9505)
 Item = "Decoration B"
-mass = 12
+mass = 5
 
-[node name="ResourceBox3d3" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d3" parent="Arbol/Interactables/Boxes" instance=ExtResource("6_eq40k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.35642, -3.22639, 2.78791, -9.39564)
 Item = "Decoration C"
 mass = 5
 
-[node name="ResourceBox3d4" parent="Arbol/Interactables/Boxes" instance=ExtResource("3_rso4s")]
+[node name="ResourceBox3d4" parent="Arbol/Interactables/Boxes" instance=ExtResource("6_eq40k")]
 transform = Transform3D(-0.0101227, 0, 1.35635, 0, 1, 0, -0.999949, 0, -0.0137306, 10.1322, 2.78791, -4.17651)
 Item = "Decoration D"
 mass = 5
@@ -154,8 +126,10 @@ light_energy = 10.0
 spot_range = 60.0
 spot_angle = 60.0
 
-[node name="Pivot" parent="." instance=ExtResource("6_pnftu")]
+[node name="Pivot" parent="." instance=ExtResource("7_5836s")]
 transform = Transform3D(1, 0, -3.57628e-06, 0, 1, 0, 3.57628e-06, 0, 1, 0, 0, 0)
+
+[node name="WinterTownSkyBox" parent="." instance=ExtResource("8_f3m86")]
 
 [connection signal="body_exited" from="Arbol/Targets/TargetLocation3D" to="Arbol/Targets/TargetLocation3D" method="_on_body_exited"]
 [connection signal="body_exited" from="Arbol/Targets/TargetLocation3D2" to="Arbol/Targets/TargetLocation3D2" method="_on_body_exited"]

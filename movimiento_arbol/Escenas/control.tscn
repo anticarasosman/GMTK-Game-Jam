@@ -21,6 +21,7 @@ scale = Vector2(0.370072, 0.404701)
 texture = ExtResource("1_baicm")
 
 [node name="Game_Over_Text" type="Button" parent="."]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 126.0
 offset_right = 912.0

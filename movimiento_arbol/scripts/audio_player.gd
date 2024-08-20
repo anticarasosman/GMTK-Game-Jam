@@ -14,6 +14,9 @@ func start_game() -> void:
 	stream = level_song
 	play()
 
+func on_menu() -> void:
+	stream = menu_song
+	play()
 
 func _on_finished() -> void:
 	play()

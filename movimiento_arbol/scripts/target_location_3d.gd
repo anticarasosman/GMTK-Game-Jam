@@ -5,6 +5,7 @@ extends Area3D
 @export var Zone = "Front"
 @onready var player_3d = get_tree().get_current_scene().get_node("Player3D")
 @onready var arbol = get_tree().get_current_scene().get_node("Arbol")
+@onready var nivel_arbol
 
 var completed = false
 var Player_inside = false
@@ -12,6 +13,7 @@ var Player_inside = false
 
 func _ready() -> void:
 	self.body_entered.connect(_on_body_entered)
+	nivel_arbol = get_parent()
 
 func _process(delta: float) -> void:
 	Pick_up()
